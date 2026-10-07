@@ -1,0 +1,34 @@
+.App {
+  min-height: 100vh;
+  background: #f5f6fa;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.psi-shadow {
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+.psi-shadow-md {
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+.psi-card-hover {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.psi-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(26, 58, 142, 0.14);
+}
+
+.btn-transition {
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.psi-stripe {
+  background: linear-gradient(90deg, #1a3a8e 0%, #1a3a8e 70%, #f58220 100%);
+}
