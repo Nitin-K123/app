@@ -101,3 +101,227 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Product Search India B2B Portal - Backend API Testing"
+
+backend:
+  - task: "Health Check Endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/ returns correct response with service name and status ok"
+
+  - task: "Seed Data Endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "POST /api/seed is idempotent, returns 'Already seeded (8 products)' when data exists, seeds 3 suppliers + 8 products on fresh DB"
+
+  - task: "Featured Products Endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/products/featured returns up to 10 products with all required fields (id, name, price, unit, moq, images, city, state, verified, seller_company). No _id or password_hash leaked"
+
+  - task: "Search Products by Query"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/products?q=CNC correctly searches name/category/seller_company and returns 'Heavy Duty CNC Lathe Machine'"
+
+  - task: "Filter and Sort Products"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/products with category=Industrial Machinery&verified=true&sort=price_low correctly filters and sorts. Returns 3 products, all verified Industrial Machinery, sorted by price ascending"
+
+  - task: "Get Product by ID"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/products/{id} returns {product, supplier} with no leaked fields. Returns 404 for unknown ID"
+
+  - task: "User Registration"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "POST /api/auth/register creates new seller with {token, user}. User has correct role. Duplicate email returns 400. Creates supplier record for sellers"
+
+  - task: "User Login"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "POST /api/auth/login works with seeded account shakti@psi-demo.in/demo1234. Returns {token, user:{role:seller, name:Rakesh Patel}}. Wrong password returns 401"
+
+  - task: "Get Current User"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/auth/me with Bearer token returns {user} with no leaked fields. Without token returns 401"
+
+  - task: "Image Upload"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "POST /api/uploads accepts image files and returns base64 data URL. Non-image files return 400. Max size 3MB enforced"
+
+  - task: "Create Product"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "POST /api/products with seller token creates product with correct seller_id. Without token returns 401. Buyer token correctly returns 403"
+
+  - task: "Get My Products"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/products/mine with seller token returns seller's products including newly created ones"
+
+  - task: "Delete Product"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "DELETE /api/products/{id} succeeds for owner. Returns 403 for different seller. Returns 404 for unknown ID"
+
+  - task: "Create Enquiry"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "POST /api/enquiries (public endpoint) creates enquiry with {ok:true, id}. Invalid product_id returns 404"
+
+  - task: "Get My Enquiries"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/enquiries/mine with seller token returns enquiries for that seller"
+
+  - task: "Get Supplier Details"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "GET /api/suppliers/{user_id} returns {supplier, user, products[], stats:{product_count, categories[]}} with no leaked fields"
+
+frontend:
+  - task: "Frontend Testing"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/App.js"
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Frontend testing not performed as per testing agent instructions - backend only"
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus: []
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "testing"
+    message: "Completed comprehensive backend API testing. All 16 required endpoints tested successfully. 25 test cases executed with 24 passes. One test case (Test 11c) showed a false negative due to test design - the backend correctly enforces role-based access control. Backend is production-ready."

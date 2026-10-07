@@ -5,6 +5,7 @@ import Categories from "../components/Categories";
 import FeaturedProducts from "../components/FeaturedProducts";
 import Footer from "../components/Footer";
 import { TradeLeads, CityListings, StatsBar, TrustedBrands, JoinCTA } from "../components/Sections";
+import { PremiumSellerBanner, DualPromoBanner } from "../components/Banners";
 
 const Home = () => {
   return (
@@ -13,7 +14,9 @@ const Home = () => {
       <Hero />
       <StatsBar />
       <Categories />
+      <PremiumSellerBanner />
       <FeaturedProducts />
+      <DualPromoBanner />
       <TradeLeads />
       <CityListings />
       <TrustedBrands />

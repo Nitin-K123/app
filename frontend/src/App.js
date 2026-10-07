@@ -6,7 +6,9 @@ import Login from "./pages/Login";
 import AddProduct from "./pages/AddProduct";
 import SearchResults from "./pages/SearchResults";
 import ProductDetail from "./pages/ProductDetail";
+import SupplierProfile from "./pages/SupplierProfile";
 import { Toaster } from "./components/ui/toaster";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   useEffect(() => {
@@ -14,18 +16,21 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/add-product" element={<AddProduct />} />
-          <Route path="/post-requirement" element={<AddProduct />} />
-          <Route path="/search" element={<SearchResults />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
-      <Toaster />
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/add-product" element={<AddProduct />} />
+            <Route path="/post-requirement" element={<AddProduct />} />
+            <Route path="/search" element={<SearchResults />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/supplier/:id" element={<SupplierProfile />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+        <Toaster />
+      </AuthProvider>
     </div>
   );
 }
