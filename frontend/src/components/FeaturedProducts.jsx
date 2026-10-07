@@ -18,7 +18,7 @@ const FeaturedProducts = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {featuredProducts.map((p) => (
-            <article key={p.id} className="bg-white rounded-lg border border-slate-200 overflow-hidden psi-card-hover flex flex-col">
+            <Link to={`/product/${p.id}`} key={p.id} className="bg-white rounded-lg border border-slate-200 overflow-hidden psi-card-hover flex flex-col">
               <div className="relative aspect-square bg-slate-50 overflow-hidden">
                 <img src={p.image} alt={p.name} className="h-full w-full object-cover" />
                 {p.verified && (
@@ -42,15 +42,15 @@ const FeaturedProducts = () => {
                   <div className="flex items-center gap-1 text-slate-500"><MapPin className="h-3 w-3" /> {p.city}</div>
                 </div>
                 <div className="mt-3 flex gap-2">
-                  <Button size="sm" className="flex-1 bg-[#f58220] hover:bg-[#e07010] text-white btn-transition text-xs h-8">
+                  <Button size="sm" className="flex-1 bg-[#f58220] hover:bg-[#e07010] text-white btn-transition text-xs h-8" onClick={(e) => e.preventDefault()}>
                     <MessageCircle className="h-3.5 w-3.5 mr-1" /> Enquire
                   </Button>
-                  <Button size="sm" variant="outline" className="border-[#1a3a8e] text-[#1a3a8e] hover:bg-[#1a3a8e] hover:text-white btn-transition text-xs h-8 px-2">
+                  <Button size="sm" variant="outline" className="border-[#1a3a8e] text-[#1a3a8e] hover:bg-[#1a3a8e] hover:text-white btn-transition text-xs h-8 px-2" onClick={(e) => e.preventDefault()}>
                     <Phone className="h-3.5 w-3.5" />
                   </Button>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

@@ -41,7 +41,48 @@ export const featuredProducts = [
   { id: 6, name: "Stainless Steel Sheet 304 Grade", price: "₹ 215", unit: "per Kg", moq: "1000 Kg", company: "Metalex Alloys", city: "Jamnagar, Gujarat", verified: true, image: "https://images.unsplash.com/photo-1697698532634-ea59b636ccea?crop=entropy&cs=srgb&fm=jpg&q=85" },
   { id: 7, name: "Corrugated Shipping Boxes", price: "₹ 42", unit: "per Box", moq: "500 Boxes", company: "Pack & Go Industries", city: "Noida, UP", verified: false, image: "https://images.unsplash.com/photo-1700165644892-3dd6b67b25bc?crop=entropy&cs=srgb&fm=jpg&q=85" },
   { id: 8, name: "Hydraulic Power Press 100 Ton", price: "₹ 4,25,000", unit: "per Unit", moq: "1 Unit", company: "Precision Hydro Works", city: "Ludhiana, Punjab", verified: true, image: "https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?crop=entropy&cs=srgb&fm=jpg&q=85" },
+  { id: 9, name: "Industrial Ball Valve 2 inch SS304", price: "₹ 1,250", unit: "per Piece", moq: "25 Pieces", company: "Flowtech Valves India", city: "Coimbatore, Tamil Nadu", verified: true, image: "https://images.unsplash.com/photo-1538474705339-e87de81450e8?crop=entropy&cs=srgb&fm=jpg&q=85" },
+  { id: 10, name: "Heavy Duty Industrial Compressor 50HP", price: "₹ 2,85,000", unit: "per Unit", moq: "1 Unit", company: "AirMax Engineering Co.", city: "Chennai, Tamil Nadu", verified: true, image: "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?crop=entropy&cs=srgb&fm=jpg&q=85" },
 ];
+
+export const productDetails = {
+  description:
+    "Premium industrial-grade product manufactured in India under strict ISO 9001:2015 quality standards. Suitable for heavy-duty commercial, infrastructure and manufacturing applications. Backed by on-site technical support and a 12-month manufacturer warranty.",
+  highlights: [
+    "ISO 9001:2015 certified manufacturing",
+    "12-month warranty with on-site support",
+    "Pan-India delivery in 7-10 business days",
+    "Custom specifications & bulk pricing available",
+    "GST invoice & export documentation provided",
+  ],
+  specifications: [
+    { key: "Brand", value: "PSI Verified" },
+    { key: "Country of Origin", value: "India" },
+    { key: "Material", value: "Industrial Grade" },
+    { key: "Warranty", value: "12 Months" },
+    { key: "Packaging Type", value: "Wooden Crate / Carton" },
+    { key: "Delivery Time", value: "7-10 Working Days" },
+    { key: "Payment Terms", value: "30% Advance, 70% Before Dispatch" },
+    { key: "Supply Ability", value: "500+ units / month" },
+  ],
+  gallery: [
+    "https://images.unsplash.com/photo-1717386255773-1e3037c81788?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1697698532634-ea59b636ccea?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "https://images.unsplash.com/photo-1693907986952-3cd372e4c9d8?crop=entropy&cs=srgb&fm=jpg&q=85",
+  ],
+  seller: {
+    yearEstablished: 2008,
+    gst: "24AABCS1429R1Z5",
+    annualTurnover: "₹ 25 - 50 Crore",
+    employees: "150-200",
+    certifications: ["ISO 9001:2015", "CE Certified", "BIS Approved"],
+    responseRate: "96%",
+    responseTime: "Within 2 hours",
+    rating: 4.6,
+    reviews: 284,
+  },
+};
 
 export const cities = [
   "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune", "Ahmedabad",

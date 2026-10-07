@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import AddProduct from "./pages/AddProduct";
+import SearchResults from "./pages/SearchResults";
+import ProductDetail from "./pages/ProductDetail";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
@@ -18,7 +20,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/post-requirement" element={<AddProduct />} />
-          <Route path="/search" element={<Home />} />
+          <Route path="/search" element={<SearchResults />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
